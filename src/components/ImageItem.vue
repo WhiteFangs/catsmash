@@ -13,5 +13,17 @@ export default defineComponent({
 </script>
 
 <template>
-  <img :src="cat.url">
+  <div class="image">
+    <img :src="cat.url">
+  </div>
 </template>
+
+<style>
+.image {
+  width: 100%;
+}
+
+.image img {
+  width: inherit;
+}
+</style>
