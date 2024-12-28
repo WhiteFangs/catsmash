@@ -24,13 +24,13 @@ export default defineComponent({
   <div v-if="cats.length > 0">
     <div class="podium">
       <div class="container">
-        <ImageItem :cat="cats[1]" />
+        <ImageItem :cat="cats[1]" label="center" />
       </div>
       <div class="container">
-        <ImageItem :cat="cats[0]" />
+        <ImageItem :cat="cats[0]" label="center" />
       </div>
       <div class="container">
-        <ImageItem :cat="cats[2]" />
+        <ImageItem :cat="cats[2]" label="center" />
       </div>
     </div>
     <div class="grid">
