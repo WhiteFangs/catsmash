@@ -19,4 +19,9 @@ export const useCatsStore = defineStore('cats', {
       }
     }
   },
+  getters: {
+    sortedCats(state) {
+      return [...state.cats].sort((a, b) => b.score - a.score);
+    }
+  }
 })
