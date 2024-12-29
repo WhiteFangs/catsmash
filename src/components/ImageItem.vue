@@ -8,9 +8,13 @@ export default defineComponent({
       type: Object as PropType<Cat>,
       required: true
     },
+    rank: {
+      type: Number,
+      required: true
+    },
     label: {
       type: String,
-      default: 'top'
+      default: 'bottom'
     }
   }
 });
@@ -18,16 +22,20 @@ export default defineComponent({
 
 <template>
   <div class="image">
-    <img :src="cat.url">
-    <div class="score" :class="label">
-      <div class="label">
-        Score: {{ cat.score }} pts
+    <img :src="cat.url" :alt="`Rang : #${rank} - Score : ${cat.score} points`"
+      :title="`Rang : #${rank} - Score : ${cat.score} points`">
+    <div class="label-container" :class="label">
+      <div class="label rank">
+        #{{ rank }}
+      </div>
+      <div class="label score">
+        Score : {{ cat.score }} pts
       </div>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 .image {
   width: 100%;
   position: relative;
@@ -37,22 +45,29 @@ export default defineComponent({
   width: inherit;
 }
 
-.score {
+.label-container {
   position: absolute;
-  width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.score.top {
-  top: 0;
+.label-container.bottom {
+  bottom: 0;
 }
 
-.score.center {
+.label-container.center {
   top: 50%;
 }
 
 .label {
-  margin: auto;
-  background: rgba(255, 255, 255, .5);
+  background: white;
+  padding: .3em;
+  border-radius: .3em;
+  margin-top: .3em;
+}
+
+.label.rank {
+  border-radius: 100%;
+  font-size: 1.5em;
 }
 </style>

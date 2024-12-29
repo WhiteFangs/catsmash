@@ -24,18 +24,18 @@ export default defineComponent({
   <div v-if="cats.length > 0">
     <div class="podium">
       <div class="container">
-        <ImageItem :cat="cats[1]" label="center" />
+        <ImageItem :cat="cats[1]" label="center" :rank="2" />
       </div>
       <div class="container">
-        <ImageItem :cat="cats[0]" label="center" />
+        <ImageItem :cat="cats[0]" label="center" :rank="1" />
       </div>
       <div class="container">
-        <ImageItem :cat="cats[2]" label="center" />
+        <ImageItem :cat="cats[2]" label="center" :rank="3" />
       </div>
     </div>
     <div class="grid">
-      <div class="container" v-for="cat in cats.slice(3)" :key="cat.id">
-        <ImageItem :cat="cat" />
+      <div class="container" v-for="(cat, i) in cats.slice(3)" :key="cat.id">
+        <ImageItem :cat="cat" :rank="i + 4" />
       </div>
     </div>
   </div>
