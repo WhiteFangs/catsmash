@@ -49,6 +49,8 @@ export default defineComponent({
   position: absolute;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .label-container.bottom {

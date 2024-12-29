@@ -18,6 +18,9 @@ export const useCatsStore = defineStore('cats', {
       } catch (error) {
         console.log(error);
       }
+    },
+    getTwoRandomCats() {
+      return [...this.cats].sort(() => 0.5 - Math.random()).slice(0, 2);
     }
   },
   getters: {
