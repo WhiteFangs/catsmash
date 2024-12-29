@@ -21,8 +21,11 @@ export const useCatsStore = defineStore('cats', {
     }
   },
   getters: {
-    sortedCats(state) {
-      return [...state.cats].sort((a, b) => b.score - a.score);
+    sortedCats(): Cat[] {
+      return [...this.cats].sort((a, b) => b.score - a.score);
+    },
+    isLoaded(): boolean {
+      return this.cats.length > 0;
     }
   }
 })

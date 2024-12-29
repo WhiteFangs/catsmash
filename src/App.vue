@@ -1,8 +1,19 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useCatsStore } from './stores/catsStore';
+import { mapState } from 'pinia';
 
 export default defineComponent({
-  name: 'App'
+  name: 'App',
+  computed: {
+    ...mapState(useCatsStore, {
+      isLoaded: 'isLoaded'
+    })
+  },
+  mounted() {
+    const store = useCatsStore();
+    store.fetchCats();
+  }
 });
 </script>
 
@@ -10,7 +21,7 @@ export default defineComponent({
   <header>
     Catsmash
   </header>
-  <RouterView />
+  <RouterView v-if="isLoaded" />
 
   <div class="fixed bottom">
     <nav>

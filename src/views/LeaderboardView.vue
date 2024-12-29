@@ -12,10 +12,6 @@ export default defineComponent({
     ...mapState(useCatsStore, {
       cats: 'sortedCats'
     })
-  },
-  mounted() {
-    const store = useCatsStore();
-    store.fetchCats();
   }
 })
 </script>
