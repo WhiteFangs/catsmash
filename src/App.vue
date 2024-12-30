@@ -6,9 +6,7 @@ import { mapState } from 'pinia';
 export default defineComponent({
   name: 'App',
   computed: {
-    ...mapState(useCatsStore, {
-      isLoaded: 'isLoaded'
-    })
+    ...mapState(useCatsStore, ['isLoaded', 'totalMatches'])
   },
   mounted() {
     const store = useCatsStore();
@@ -30,6 +28,9 @@ export default defineComponent({
       </div>
       <RouterLink v-if="$route.name === 'leaderboard'" to="/">Revenir au vote</RouterLink>
       <RouterLink v-if="$route.name === 'home'" to="/leaderboard">Voir le classement des chats</RouterLink>
+      <div class="matches">
+        {{ totalMatches }} matchs joués
+      </div>
     </nav>
   </div>
 </template>
@@ -72,5 +73,9 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   color: black;
+}
+
+.matches {
+  margin-top: 1em;
 }
 </style>

@@ -29,6 +29,9 @@ export const useCatsStore = defineStore('cats', {
     },
     isLoaded(): boolean {
       return this.cats.length > 0;
+    },
+    totalMatches(): number {
+      return this.cats.reduce((sum, cat) => sum + cat.score, 0);
     }
   }
 })
