@@ -30,7 +30,7 @@ export default defineComponent({
 <template>
   <div class="facing" v-if="cats.length > 0">
     <div class="candidate-container">
-      <CandidateItem :cat="cats[0]" @vote="vote(cats[1])" />
+      <CandidateItem :cat="cats[0]" @vote="vote(cats[0])" />
     </div>
     <div class="candidate-container">
       <CandidateItem :cat="cats[1]" @vote="vote(cats[1])" />
